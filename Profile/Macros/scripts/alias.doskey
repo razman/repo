@@ -1,0 +1,50 @@
+[cmd.exe]
+
+;==Alias==
+aa=edit:<DOSKEY /M:all 
+rr=DOSKEY /MACROFILE="%FARPROFILE%\Macros\scripts\Alias\alias.doskey"
+
+;==Utils==
+lua=lua51x.exe
+;=vt=C:\APPS\AV\VirusTotalUpload2.exe $*
+;=wscc=C:\APPS\SERVICE\wscc.exe
+kill=taskkill /f /im $*
+np=notepad
+npp=notepad++
+
+;==Sysinternals==
+dbgview=D:\SysinternalsSuite\Dbgview.exe
+procexp=D:\SysinternalsSuite\procexp.exe
+procmon=D:\SysinternalsSuite\Procmon.exe
+Tcpview=D:\SysinternalsSuite\Tcpview.exe 
+
+;==Everything==
+Everything="C:\Program Files\Everything\Everything.exe" 
+es--h=view:<%USERPROFILE%\bin\es.exe --h
+es=%USERPROFILE%\bin\es.exe $*
+ee=tmp:-menu +replace <%USERPROFILE%\bin\es.exe -n 1000 $*
+ee?=tmp:-menu +replace +any <%USERPROFILE%\bin\es.exe -n 1000 $*
+eee=tmp:-menu -replace <%USERPROFILE%\bin\es.exe -n 1000 $*
+
+;==scripts==
+mount=tmp:+menu<for /f "skip=15 tokens=*" %q in ('mountvol')do @echo %q
+un=lua: @"%FARPROFILE%\Macros\utils\un.lua"
+changelog=edit:<C:\APPS\Develop\svn\svn.exe log http://farmanager.googlecode.com/svn/trunk/ -v -l 10 $*
+
+;==Folders==
+c=chdir c:
+d=chdir d:
+desktop=goto:"%USERPROFILE%\Destop"
+HOME=goto:"%HOMEDRIVE%%HOMEPATH%\Local Settings"
+tmp=chdir "%TMP%"
+temp=chdir "%TEMP%"
+dwn=chdir d:\tmp
+pf=cd "C:\Program Files"
+pfx=cd "C:\Program Files (x86)" 
+
+;==WWW==
+translate=http://translate.google.com/translate?u=$*
+IMDb="http://www.imdb.com/find?s=all&q=$*"
+
+;== Open and filter "File associations" menu
+ass=lua: Keys "F9 c a RAlt" print "$*"
